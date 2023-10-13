@@ -1,3 +1,4 @@
+import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 
 import{Colors, DebugInstructions, Header, LearnMoreLinks, ReloadInstructions} from 'react-native/Libraries/NewAppScreen';
@@ -7,15 +8,10 @@ import FillerImage from './assets/penguin.png';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-function HomeScreen(){
-  return(
-    <SafeAreaView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </SafeAreaView>
-  );
-}
+/* import SplashScreen from '/src/screens/SplashScreen';
+import LoginScreen from '/src/screens/LoginScreen'; */
 
-function MainScreen({navigation}){
+function SplashScreen({navigation}){
   return(
     <SafeAreaView
       style={{
@@ -32,7 +28,7 @@ function MainScreen({navigation}){
     
     {/* <View style = {{flex:1, justiftContent:'Center', alignItems:'center'}}></View> */}
     <TouchableOpacity 
-      onPress={()=>navigation.navigate('Home')}
+      onPress={()=>navigation.navigate('Login')}
       style={{backgroundColor: '#AD40AF', padding:20, width:'90%', borderRadius:5,flexDirection:'row', justifyContent:'space-between', marginTop: 30}}>
       {/*Customized font themes in react-native.config.js, couldn't figure out who to rebuild*/}
       <Text style = {{fontWeight:'bold', fontSize:18, color:'#fff', fontStyle:'italic'}}> I want to see cool things!</Text>
@@ -42,29 +38,23 @@ function MainScreen({navigation}){
   );
 }
 
-const Stack = createNativeStackNavigator();
-
-/* function App() {
-  return <HomeScreen/>
+function LoginScreen({navigation}){
+  return(
+    <SafeAreaView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Syke :/</Text>
+    </SafeAreaView>
+  );
 }
 
-export default App; */
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={MainScreen} options={{headerShown:false}}/>
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Splash" component={SplashScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="Login" component={LoginScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-/* const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-}); */
